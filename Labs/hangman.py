@@ -16,6 +16,7 @@
 # if the user gets all the correct letters, tell the user they won
 
 # ask if they want to play again
+import random
 
 import random
 
@@ -165,4 +166,6 @@ while not done:
             done = False
         else:
             print("Ok.")
+
+
 
