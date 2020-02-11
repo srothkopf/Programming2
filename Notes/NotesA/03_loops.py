@@ -10,7 +10,7 @@ print()
 my_list = [x for x in range(100)]
 print(my_list)
 
-my_list = list(range(100))  # iterable
+my_list = my_list(range(100))  # iterable
 print(my_list)
 
 # BREAK (breaks out of the loop)
