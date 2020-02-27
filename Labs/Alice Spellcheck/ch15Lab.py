@@ -18,8 +18,8 @@ with open("../Alice Spellcheck/dictionary.txt") as f:
     dictionary_words = [x.strip().upper() for x in f]
 file.close() # STEP 3
 
-'''
-print("--- Linear Search ---") # STEP 4
+
+print("\n--- Linear Search ---") # STEP 4
 
 file = open("../Alice Spellcheck/AliceInWonderLand200.txt") # STEP 5
 line_number1 = 0
@@ -39,9 +39,9 @@ for line in file: # STEP 7
         linear_search(word, dictionary_words, line_number1)
 
 file.close() # STEP 11
-''' # STEP 16
+# STEP 16
 
-print("--- Binary Search ---") # STEP 15
+print("\n--- Binary Search ---") # STEP 15
 
 file = open("../Alice Spellcheck/AliceInWonderLand200.txt")
 line_number2 = 0
@@ -72,6 +72,8 @@ file.close()
 pat_self_on_back = True # STEP 21
 
 # Challenge:  Find all words that occur in Alice through the looking glass that do NOT occur in Wonderland.
+
+'''
 
 print("\n--- Challenge Problem ---")
 file = open("../Alice Spellcheck/AliceInWonderLand.txt")
@@ -113,3 +115,4 @@ for word in looking_glass_words:
     challenge_binary_search(word, wonderland_words, line_number3)
 
 file.close()
+'''
