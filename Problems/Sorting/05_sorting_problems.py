@@ -36,8 +36,8 @@ career_pts = sum(bryant_pts)
 print("Kobe Bryant scored a total of", career_pts, "career points.")
 
 #4  What player has the most 3point field goals in a single season. (3pts)
-data.sort(reverse=True, key=lambda a: a[-19])
-print(data[0][2], "scored the most 3-point field goals in a single season (",data[0][-19],").")
+data.sort(reverse=True, key=lambda a: a[-22])
+print(data[0][2], "scored the most 3-point field goals in a single season (",data[0][-22],").")
 
 #5  One stat featured in this data set is Win Shares(WS).
 data.sort(reverse=True, key=lambda a: a[25])
