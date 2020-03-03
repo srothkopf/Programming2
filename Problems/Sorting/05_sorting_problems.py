@@ -57,8 +57,8 @@ print(data[0][2], "was the oldest player of all time (", data[0][4],"years old).
 data.sort(reverse=True, key=lambda a: a[-1])
 top_hundred = [x for x in data[:100]]
 top_hundred.sort(reverse=True, key=lambda a: a[-10])
-print("Out of the top 100 scoring single seasons in NBA history,", top_hundred[0][2], "had the worst free throw "
-        "percentage and", top_hundred[-1][2], "had the best.")
+print("Out of the top 100 scoring single seasons in NBA history,", top_hundred[-1][2], "had the worst free throw "
+        "percentage and", top_hundred[0][2], "had the best.")
 print("(The difference between them was", (top_hundred[0][-10] - top_hundred[-1][-10]) * 100, "%)")
 
 
