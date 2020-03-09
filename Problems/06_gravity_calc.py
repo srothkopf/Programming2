@@ -9,7 +9,28 @@
 
 
 # Make a calculator that does all of the following
-# (3pts) takes the inputs for mass 1, mass 2, and distance between the two objects (m1, m2, and r)
+done = False
+print("WELCOME TO UNIVERSAL GRAVITY CALCULATOR")
+print("Please enter the following information:")
+
+
+def grav_calc(m1, m2, r):
+    gravity = 6.67e-11
+    try:
+        while not done:  # (3pts) takes the inputs for mass 1, mass 2, and distance between the two objects (m1, m2, and r)
+            mass_1 = int(input("Mass of object 1(kg):"))
+            mass_2 = int(input("Mass of object 2(kg):"))
+            r = int(input("Distance between the objects(center to center, meters):")
+            grav_calc(mass_1, mass_2, r)
+        answer = gravity * (m1 * m2) / r ** 2
+        print(answer)
+    except ValueError:
+        print("Invalid input")
+    except ZeroDivisionError:
+        print("Error, the distance cannot equal 0.")
+
+grav_calc(mass_1, mass_2, r)
+
 # (4pts) contains exceptions for any potential errors (value and dividebyzero).
 # (2pts) keeps asking for inputs until they are valid (see while loop from notes)
 # (3pts) calculates the force of gravity in Newtons and print the result to the user in scientific notation to two decimals.

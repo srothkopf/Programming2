@@ -44,7 +44,7 @@ print(my_list2)
 
 for key_pos in range(1, len(my_list2)):
     key_val = my_list2[key_pos]
-    scan_pos = key_pos - 1 # look to dancer's left
+    scan_pos = key_pos - 1  # look to dancer's left
     while scan_pos >= 0 and key_val < my_list2[scan_pos]:
         my_list2[scan_pos + 1] = my_list2[scan_pos]
         scan_pos -= 1
