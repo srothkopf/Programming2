@@ -15,4 +15,89 @@ Turtle Recursion (30pts)
 
   Have fun!
 
+
 '''
+import turtle
+
+# set up my turtle
+my_turtle = turtle.Turtle()
+my_turtle.showturtle()
+my_turtle.shape('turtle')
+my_turtle.speed(0)
+
+# set up my screen
+my_screen = turtle.Screen()
+'''
+# H-Tree
+my_screen.bgcolor('turquoise')
+my_turtle.color('teal')
+my_turtle.width(5)
+def recursive_h(x, y, height, depth):
+    if depth > 0:
+        my_turtle.up()
+        my_turtle.goto(x, y)
+        my_turtle.down()
+        my_turtle.setheading(0)
+        my_turtle.forward(height / 2)
+        my_turtle.left(90)
+        my_turtle.forward(height / 2)
+        my_turtle.back(height)
+        my_turtle.forward(height / 2)
+        my_turtle.left(90)
+        my_turtle.forward(height)
+        my_turtle.left(90)
+        my_turtle.forward(height / 2)
+        my_turtle.back(height)
+        recursive_h(x + height / 2, y + height / 2, height / 2,  depth - 1)
+        recursive_h(x + height / 2, y - height / 2, height / 2,  depth - 1)
+        recursive_h(x - height / 2, y + height / 2, height / 2,  depth - 1)
+        recursive_h(x - height / 2, y - height / 2, height / 2,  depth - 1)
+
+recursive_h(0, 0, 315, 4)
+my_screen.clear()
+
+my_screen.bgcolor('black')
+my_turtle.color('white')
+my_turtle.width(0)
+
+# Sierpenski Triangles
+def sier_triangles(x, y, height, depth):
+    if depth > 0:
+        my_turtle.up()
+        my_turtle.goto(x, y)
+        my_turtle.down()
+        my_turtle.setheading(0)
+        my_turtle.forward(height / 2)
+        my_turtle.right(120)
+        my_turtle.forward(height)
+        my_turtle.right(120)
+        my_turtle.forward(height)
+        my_turtle.right(120)
+        my_turtle.forward(height/2)
+        sier_triangles(x, y + height / 2, height / 2, depth - 1)
+        sier_triangles(x + height / 2, y - height / 2, height / 2, depth - 1)
+        sier_triangles(x - height / 2, y - height / 2, height / 2, depth - 1)
+
+sier_triangles(0, 25, 250, 5)
+'''
+my_screen.bgcolor('beige')
+my_turtle.color('blue')
+my_turtle.width(2)
+
+def my_fractal(x, y, height, depth):
+    if depth > 0:
+        my_turtle.up()
+        my_turtle.goto(x, y)
+        my_turtle.down()
+        my_turtle.setheading(90)
+        for i in range(depth):
+            my_turtle.forward(height / 2)
+            my_turtle.left(depth * 30)
+        my_fractal(x, y + height, height / 2,  depth - 1)
+
+my_fractal(0, 0, 100, 4)
+
+my_screen.exitonclick()
+
+
+
