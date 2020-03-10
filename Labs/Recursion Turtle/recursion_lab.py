@@ -27,7 +27,7 @@ my_turtle.speed(0)
 
 # set up my screen
 my_screen = turtle.Screen()
-'''
+
 # H-Tree
 my_screen.bgcolor('turquoise')
 my_turtle.color('teal')
@@ -79,7 +79,7 @@ def sier_triangles(x, y, height, depth):
         sier_triangles(x - height / 2, y - height / 2, height / 2, depth - 1)
 
 sier_triangles(0, 25, 250, 5)
-'''
+
 my_screen.bgcolor('beige')
 my_turtle.color('blue')
 my_turtle.width(2)
@@ -90,12 +90,24 @@ def my_fractal(x, y, height, depth):
         my_turtle.goto(x, y)
         my_turtle.down()
         my_turtle.setheading(90)
-        for i in range(depth):
+        my_turtle.forward(height)
+        for i in range(4):
+            my_turtle.left(20)
             my_turtle.forward(height / 2)
-            my_turtle.left(depth * 30)
-        my_fractal(x, y + height, height / 2,  depth - 1)
+        for i in range(4):
+            my_turtle.back(height / 2)
+            my_turtle.right(20)
+        for i in range(4):
+            my_turtle.right(20)
+            my_turtle.forward(height / 2)
+        for i in range(4):
+            my_turtle.back(height / 2)
+            my_turtle.left(20)
+        my_fractal(x + height * 1.43, y + height * 2.2, height / 2, depth - 1)
+        my_fractal(x - height * 1.43, y + height * 2.2, height / 2, depth - 1)
 
-my_fractal(0, 0, 100, 4)
+
+my_fractal(0, -300, 120, 6)
 
 my_screen.exitonclick()
 
