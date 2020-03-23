@@ -41,9 +41,6 @@ year_names = [x[0] for x in recent_data]
 plt.plot(year_numbers, total, color='purple', label='Total Riders')
 plt.plot(year_numbers, busses, color='red', label='Bus')
 plt.plot(year_numbers, trains, color='blue', label='Rail')
-
-
-
 plt.xticks(year_numbers, year_names, fontsize='10')
 plt.title("CTA Ridership 2008-2018", fontsize='20')
 plt.xlabel("Years", fontsize='15')
