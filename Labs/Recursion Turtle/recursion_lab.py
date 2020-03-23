@@ -29,8 +29,8 @@ my_turtle.speed(0)
 my_screen = turtle.Screen()
 
 # H-Tree
-my_screen.bgcolor('turquoise')
-my_turtle.color('teal')
+my_screen.bgcolor('white')
+my_turtle.color('black')
 my_turtle.width(5)
 def recursive_h(x, y, height, depth):
     if depth > 0:
@@ -79,6 +79,7 @@ def sier_triangles(x, y, height, depth):
         sier_triangles(x - height / 2, y - height / 2, height / 2, depth - 1)
 
 sier_triangles(0, 25, 250, 5)
+my_screen.clear()
 
 my_screen.bgcolor('beige')
 my_turtle.color('blue')
@@ -107,7 +108,7 @@ def my_fractal(x, y, height, depth):
         my_fractal(x - height * 1.43, y + height * 2.2, height / 2, depth - 1)
 
 
-my_fractal(0, -300, 120, 6)
+my_fractal(0, -300, 120, 7)
 
 my_screen.exitonclick()
 
