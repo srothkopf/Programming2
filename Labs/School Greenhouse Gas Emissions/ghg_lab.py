@@ -41,3 +41,26 @@ Note 2:  This is a tough assignment to do on your own.  Do your best with what y
 import csv
 import matplotlib.pyplot as plt
 import numpy as np
+
+with open("Chicago_Energy_Benchmarking (1).csv") as f:
+    reader = csv.reader(f)
+    data = list(reader)
+
+headers = data.pop(0)
+print(headers)
+
+data.sort(key=lambda x: int(x[0]))
+
+for i in range(10):
+    print()
+
+recent_data = []
+
+for building in data:
+    try:
+        if int(building[0]) == 2018:
+            recent_data.append(building)
+    except:
+        print(building[0], "data is incomplete.")
+
+
