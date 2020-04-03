@@ -46,21 +46,53 @@ with open("Chicago_Energy_Benchmarking (1).csv") as f:
     reader = csv.reader(f)
     data = list(reader)
 
-headers = data.pop(0)
-print(headers)
+header = data.pop(0)
+print(header)
 
-data.sort(key=lambda x: int(x[0]))
+ghg_index = header.index("Total GHG Emissions (Metric Tons CO2e)")
+sqft_index = header.index("Gross Floor Area - Buildings (sq ft)")
+type_index = header.index("Primary Property Type")
 
-for i in range(10):
-    print()
-
-recent_data = []
+valid_data = []
 
 for building in data:
     try:
-        if int(building[0]) == 2018:
-            recent_data.append(building)
+        int(building[ghg_index])
+        int(building[sqft_index])
+        if building[type_index] == "K-12 School" and building[0] == "2018":
+            valid_data.append(building)
     except:
-        print(building[0], "data is incomplete.")
+        pass
 
 
+ghg = [int(x[ghg_index]) for x in valid_data]
+
+color = []
+for building in ghg:
+    if building > 4000:
+        color.append("red")
+    else:
+        color.append("green")
+
+sqft = [int(x[sqft_index]) for x in valid_data]
+
+names = [x[2] for x in valid_data]
+print()
+print(names)
+
+
+plt.figure(1, tight_layout=True)
+plt.scatter(sqft, ghg, c=color) # s for size, c for color
+plt.title("Chicago K-12 Schools 2018 GHG Emissions", fontsize='20')
+plt.xlabel("Building Size (sq ft)", fontsize='15')
+plt.ylabel("GH Gas Emissions (tons CO2)", fontsize='15')
+
+plt.annotate("Latin School of Chicago Upper School", xy=(151751, 1780)) # Parker's 2018 data must not be valid
+# it doesn't show up in my data so I just decided to use Latin instead
+
+p = np.polyfit(sqft, ghg, 1) # best fit
+x = [x for x in range(500000)]
+y = [p[0] * y + p[1] for y in x]
+plt.plot(x, y)
+
+plt.show()
