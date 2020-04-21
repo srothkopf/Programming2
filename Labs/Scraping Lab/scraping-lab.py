@@ -42,7 +42,7 @@ print(title.text)
 extra = soup.find_all(dir="auto")
 for i in extra:
     print(i.text)
-
+# not having luck figuring out how to target specific tweets
 
 
 
