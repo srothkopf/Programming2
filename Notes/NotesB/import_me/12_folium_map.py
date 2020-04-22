@@ -25,4 +25,5 @@ for i in range(len(data)):
                   ).add_to(art_map)
 
 
+
 art_map.save('art_map.html')
