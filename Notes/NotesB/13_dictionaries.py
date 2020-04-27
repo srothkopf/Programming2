@@ -71,3 +71,25 @@ print(new_dict)
 # popping items
 print(the_office.pop('developedBy'))
 print(the_office)
+
+# using a dictionary to track (database like)
+
+import random
+
+head_tails = {}
+
+flips = [random.choice(['heads', 'tails']) for x in range(100)]
+for flip in flips:
+    if flip == 'heads':
+        if flip in head_tails:
+            head_tails['heads'] += 1
+        else:
+            head_tails['heads'] = 1
+    if flip == 'tails':
+        if flip in head_tails:
+            head_tails['tails'] += 1
+        else:
+            head_tails['tails'] = 1
+
+
+print(head_tails)

@@ -1,16 +1,11 @@
 # Folium train map
 
-
 # 15pts - Use folium to plot all of the L train stops in Chicago. Use an appropriate start zoom level.
 # 5pts - Add the name to each stop as a popup. Add a train icon to each marker.  Save as an html page in the same folder.
 # 3pts  - Color code all of the lines (make the pink line marker pink etc.)
 # 2pts - Brown is not a default color name.  See if you can use the documentation for Folium to set a marker color through other means.
 
 # Data set is in this folder, but can be found at: https://data.cityofchicago.org/api/views/8pix-ypme/rows.csv?accessType=DOWNLOAD
-
-# Tricky parts of this one
-## The location is in tuple format.  If you have trouble converting it, try this:
-# If you have extra time, try to put some html into the popup.
 
 import folium
 import csv
@@ -19,14 +14,12 @@ from folium import plugins
 with open('CTA_-_System_Information_-_List_of__L__Stops (1).csv') as f:
     reader = csv.reader(f)
     data = list(reader)
-
 print(data.pop(0))
-print(data[0])
 
 latlong = [eval(x[-1]) for x in data]
 names = [x[2] for x in data]
-colors = []
 
+colors = []
 for station in data:
     if station[7] == 'true':
         colors.append('#F23C3C') # red
@@ -43,9 +36,9 @@ for station in data:
     elif station[11] == 'true' or station[12 =='true']:
         colors.append('#7630CB')  # purple
 
-
 cta_map = folium.Map(location=[41.880443, -87.644107],
-                     zoom_start=11, tiles="CartoDB positron")
+                     zoom_start=11,
+                     tiles="CartoDB positron")
 
 for i in range(len(data)):
     folium.Marker(location=(latlong[i]),
