@@ -10,12 +10,6 @@
 
 # Tricky parts of this one
 ## The location is in tuple format.  If you have trouble converting it, try this:
-my_string = '(41.2, -87.9)'
-my_tuple = eval(my_string)
-print(my_tuple)
-print(type(my_tuple))
-
-
 # If you have extra time, try to put some html into the popup.
 
 import folium
@@ -42,12 +36,12 @@ for station in data:
         colors.append('#50CB3C') # green
     elif station[10] == 'true':
         colors.append('#825C36') # brown
-    elif station[11] == 'true' or station[12 == 'true']:
-        colors.append('#7630CB') # purple
     elif station[13] == 'true':
         colors.append('#F5DF37') # yellow
     elif station[14] == 'true':
         colors.append('#F578D9') # pink
+    elif station[11] == 'true' or station[12 =='true']:
+        colors.append('#7630CB')  # purple
 
 
 cta_map = folium.Map(location=[41.880443, -87.644107],
