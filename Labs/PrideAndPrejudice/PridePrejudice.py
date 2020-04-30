@@ -31,13 +31,21 @@ import operator
 
 url = "http://www.gutenberg.org/files/1342/1342-0.txt"
 pride_prejudice = requests.get(url).text
-
 wordlist = pride_prejudice.split()
-wordlist = [x.upper().strip(' ?.:;!\\<>{}\n\t') for x in wordlist]
+wordlist = [x.lower().strip(' ?.,:;!\\<>{}\n\t') for x in wordlist]
+
+url2 = "https://gist.githubusercontent.com/deekayen/4148741/raw/98d35708fa344717d8eee15d11987de6c8e26d7d/1-1000.txt"
+common_words = requests.get(url2).text
+common_wordlist = [x.lower().strip(' ?.,:;!\\<>{}\n\t') for x in wordlist]
+
+uncommon_words = []
+for word in wordlist:
+    if word not in common_words:
+        uncommon_words.append(word)
+print(uncommon_words)
 
 word_counts = {}
-
-for word in wordlist:
+for word in uncommon_words:
     if word in word_counts:
         word_counts[word] += 1
     else:
@@ -62,6 +70,7 @@ plt.title("Top 25 Most Used Words in Pride and Prejudice", fontsize=15)
 plt.xlabel("Total Uses", fontsize=15)
 
 plt.show()
+
 
 
 # CHALLENGE (OPTIONAL)
