@@ -24,14 +24,10 @@ What is the price most expensive Star Wars lego set (use list_price)?
 799.99
 
 What is the name of the most expensive Star Wars lego set (use set_name)?
-Death Star
 Millennium Falcon
-Imperial Cruiser
 
 What is the highest piece_count for any lego set?
 7541
-10113
-15782
 
 What is the set name with the highest piece_count?
 Millennium Falcon
