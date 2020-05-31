@@ -15,3 +15,4 @@ print(grouped['female'][1])
 print(type(grouped['female']))
 grouped = df.groupby(['Sex', 'Pclass'])['Survived'].mean().plot()
 df = df.loc[df['Pclass'] != "?"]
+#.unique()
